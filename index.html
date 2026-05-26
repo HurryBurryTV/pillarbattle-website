@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pillarbattle | Minecraft Minigames</title>
+    <meta
+      name="description"
+      content="Pillarbattle är en Minecraft minigames-server med Manhunt, Pillar of Fortune och Death Swap."
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Till startsidan">
+        <img class="brand-mark" src="assets/pillarbattle.png" alt="" aria-hidden="true">
+        <span>Pillarbattle</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="#spel">Spel</a>
+        <a href="#events">Events</a>
+        <a href="#regler">Regler</a>
+      </nav>
+      <a class="discord-link" href="#discord">Discord</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="pixel-sky" aria-hidden="true">
+          <span class="cloud cloud-one"></span>
+          <span class="cloud cloud-two"></span>
+          <span class="sun"></span>
+        </div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <img class="hero-logo" src="assets/pillarbattle.png" alt="Pillarbattle">
+            <p class="eyebrow">Minecraft Minigames</p>
+            <h1 id="hero-title">Pillarbattle gör varje match kaotisk, smart och svår att släppa.</h1>
+            <p class="hero-text">
+              Hoppa in med kompisarna och spela Manhunt, Pillar of Fortune och Death Swap på en server byggd för snabba vändningar och stora clutch-moments.
+            </p>
+            <div class="join-panel" aria-label="Serverinformation">
+              <div>
+                <span class="label">Server-IP</span>
+                <strong id="serverIp">Pillarbattle.moonsrv.me</strong>
+              </div>
+              <button class="copy-button" type="button" data-copy-target="serverIp">
+                Kopiera IP
+              </button>
+            </div>
+          </div>
+
+          <div class="server-card" aria-label="Serverstatus">
+            <div class="server-card-top">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Online nu</span>
+            </div>
+            <strong class="player-count"><span id="playerCount">42</span>/100</strong>
+            <span class="muted">spelare inne</span>
+            <div class="mini-bars" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="world-preview" aria-hidden="true">
+          <div class="island island-left"></div>
+          <div class="island island-main">
+            <span class="tree"></span>
+            <span class="portal"></span>
+            <span class="player player-one"></span>
+            <span class="player player-two"></span>
+          </div>
+          <div class="island island-right"></div>
+        </div>
+      </section>
+
+      <section class="section intro">
+        <div>
+          <p class="eyebrow">Varför Pillarbattle?</p>
+          <h2>Minigames där planen kan ändras på en sekund.</h2>
+        </div>
+        <p>
+          Servern är gjord för spelare som gillar tempo, strategi och oväntade situationer. Varje läge är enkelt att förstå, men tillräckligt djupt för att det alltid ska finnas ett nytt sätt att vinna.
+        </p>
+      </section>
+
+      <section class="section" id="spel" aria-labelledby="games-title">
+        <div class="section-heading">
+          <p class="eyebrow">Spellägen</p>
+          <h2 id="games-title">Välj ditt kaos</h2>
+        </div>
+        <div class="game-grid">
+          <article class="game-card">
+            <span class="game-icon manhunt" aria-hidden="true"></span>
+            <h3>Manhunt</h3>
+            <p>En spelare jagas medan resten försöker stoppa dem innan målet nås.</p>
+          </article>
+          <article class="game-card">
+            <span class="game-icon fortune" aria-hidden="true"></span>
+            <h3>Pillar of Fortune</h3>
+            <p>Bygg uppåt, få slumpade items och överlev längre än alla andra.</p>
+          </article>
+          <article class="game-card">
+            <span class="game-icon deathswap" aria-hidden="true"></span>
+            <h3>Death Swap</h3>
+            <p>Förbered fällor, byt plats med motståndaren och försök överleva bytet.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="events">
+        <div>
+          <p class="eyebrow">Nästa event</p>
+          <h2>Pillarbattle Night</h2>
+          <p>
+            Varje fredag kör vi specialmatcher, turneringar och nya varianter av serverns spellägen.
+          </p>
+        </div>
+        <div class="event-box">
+          <span class="label">Startar om</span>
+          <strong id="eventCountdown">03d 18h 24m</strong>
+          <span class="muted">Fredag kl. 19:00</span>
+        </div>
+      </section>
+
+      <section class="section rules" id="regler" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <p class="eyebrow">Regler</p>
+          <h2 id="rules-title">Håll servern rolig</h2>
+        </div>
+        <div class="rules-list">
+          <p>Inget fusk, x-ray, autoclicker eller exploits.</p>
+          <p>Var schysst i chatten och lyssna på staff.</p>
+          <p>Buggar rapporteras på Discord, de missbrukas inte.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="discord">
+      <div>
+        <strong>Redo att joina?</strong>
+        <span>Joina Discord för nyheter, events och serverstatus.</span>
+      </div>
+      <a href="https://discord.gg/4K7VNvwytP" target="_blank" rel="noreferrer">Gå till Discord</a>
+    </footer>
+  </body>
+</html>
