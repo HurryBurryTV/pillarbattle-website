@@ -15,7 +15,7 @@
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Till startsidan">
         <img class="brand-mark" src="assets/pillarbattle.png" alt="" aria-hidden="true">
-        <span>Pillarbattle</span>
+        <span data-content="siteName">Pillarbattle</span>
       </a>
       <nav class="nav" aria-label="Huvudmeny">
         <a href="#spel">Spel</a>
@@ -35,15 +35,15 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <img class="hero-logo" src="assets/pillarbattle.png" alt="Pillarbattle">
-            <p class="eyebrow">Minecraft Minigames</p>
-            <h1 id="hero-title">Pillarbattle gör varje match kaotisk, smart och svår att släppa.</h1>
-            <p class="hero-text">
+            <p class="eyebrow" data-content="heroEyebrow">Minecraft Minigames</p>
+            <h1 id="hero-title" data-content="heroTitle">Pillarbattle gör varje match kaotisk, smart och svår att släppa.</h1>
+            <p class="hero-text" data-content="heroText">
               Hoppa in med kompisarna och spela Manhunt, Pillar of Fortune och Death Swap på en server byggd för snabba vändningar och stora clutch-moments.
             </p>
             <div class="join-panel" aria-label="Serverinformation">
               <div>
                 <span class="label">Server-IP</span>
-                <strong id="serverIp">Pillarbattle.moonsrv.me</strong>
+                <strong id="serverIp" data-content="serverIp">Pillarbattle.moonsrv.me</strong>
               </div>
               <button class="copy-button" type="button" data-copy-target="serverIp">
                 Kopiera IP
@@ -81,10 +81,10 @@
 
       <section class="section intro">
         <div>
-          <p class="eyebrow">Varför Pillarbattle?</p>
-          <h2>Minigames där planen kan ändras på en sekund.</h2>
+          <p class="eyebrow" data-content="introEyebrow">Varför Pillarbattle?</p>
+          <h2 data-content="introTitle">Minigames där planen kan ändras på en sekund.</h2>
         </div>
-        <p>
+        <p data-content="introText">
           Servern är gjord för spelare som gillar tempo, strategi och oväntade situationer. Varje läge är enkelt att förstå, men tillräckligt djupt för att det alltid ska finnas ett nytt sätt att vinna.
         </p>
       </section>
@@ -92,9 +92,9 @@
       <section class="section" id="spel" aria-labelledby="games-title">
         <div class="section-heading">
           <p class="eyebrow">Spellägen</p>
-          <h2 id="games-title">Välj ditt kaos</h2>
+          <h2 id="games-title" data-content="gamesTitle">Välj ditt kaos</h2>
         </div>
-        <div class="game-grid">
+        <div class="game-grid" id="gamesGrid">
           <article class="game-card">
             <span class="game-icon manhunt" aria-hidden="true"></span>
             <h3>Manhunt</h3>
@@ -115,9 +115,9 @@
 
       <section class="section split" id="events">
         <div>
-          <p class="eyebrow">Nästa event</p>
-          <h2>Pillarbattle Night</h2>
-          <p>
+          <p class="eyebrow" data-content="eventEyebrow">Nästa event</p>
+          <h2 data-content="eventTitle">Pillarbattle Night</h2>
+          <p data-content="eventText">
             Varje fredag kör vi specialmatcher, turneringar och nya varianter av serverns spellägen.
           </p>
         </div>
@@ -144,9 +144,9 @@
     <footer class="footer" id="discord">
       <div>
         <strong>Redo att joina?</strong>
-        <span>Joina Discord för nyheter, events och serverstatus.</span>
+        <span data-content="footerText">Joina Discord för nyheter, events och serverstatus.</span>
       </div>
-      <a href="https://discord.gg/4K7VNvwytP" target="_blank" rel="noreferrer">Gå till Discord</a>
+      <a href="https://discord.gg/4K7VNvwytP" target="_blank" rel="noreferrer" data-href="discordUrl">Gå till Discord</a>
     </footer>
   </body>
 </html>

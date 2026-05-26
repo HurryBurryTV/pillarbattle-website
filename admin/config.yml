@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "settings"
+    label: "Hemsida"
+    files:
+      - name: "site"
+        label: "Pillarbattle hemsida"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Servernamn", name: "siteName", widget: "string" }
+          - { label: "Server-IP", name: "serverIp", widget: "string" }
+          - { label: "Discord-länk", name: "discordUrl", widget: "string" }
+          - { label: "Hero liten text", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero rubrik", name: "heroTitle", widget: "string" }
+          - { label: "Hero text", name: "heroText", widget: "text" }
+          - { label: "Intro liten text", name: "introEyebrow", widget: "string" }
+          - { label: "Intro rubrik", name: "introTitle", widget: "string" }
+          - { label: "Intro text", name: "introText", widget: "text" }
+          - { label: "Rubrik för spellägen", name: "gamesTitle", widget: "string" }
+          - label: "Spellägen"
+            name: "games"
+            widget: "list"
+            fields:
+              - { label: "Namn", name: "name", widget: "string" }
+              - { label: "Beskrivning", name: "description", widget: "text" }
+              - label: "Ikonstil"
+                name: "style"
+                widget: "select"
+                options:
+                  - { label: "Manhunt", value: "manhunt" }
+                  - { label: "Pillar of Fortune", value: "fortune" }
+                  - { label: "Death Swap", value: "deathswap" }
+          - { label: "Event liten text", name: "eventEyebrow", widget: "string" }
+          - { label: "Event rubrik", name: "eventTitle", widget: "string" }
+          - { label: "Event text", name: "eventText", widget: "text" }
+          - { label: "Footer text", name: "footerText", widget: "text" }

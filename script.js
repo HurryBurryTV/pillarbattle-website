@@ -1,6 +1,52 @@
 const copyButton = document.querySelector("[data-copy-target]");
 const playerCount = document.querySelector("#playerCount");
 const countdown = document.querySelector("#eventCountdown");
+const gamesGrid = document.querySelector("#gamesGrid");
+
+function setText(key, value) {
+  if (!value) return;
+
+  document.querySelectorAll(`[data-content="${key}"]`).forEach((element) => {
+    element.textContent = value;
+  });
+}
+
+function renderGames(games) {
+  if (!gamesGrid || !Array.isArray(games)) return;
+
+  gamesGrid.innerHTML = games.map((game) => `
+    <article class="game-card">
+      <span class="game-icon ${game.style || "fortune"}" aria-hidden="true"></span>
+      <h3>${game.name || ""}</h3>
+      <p>${game.description || ""}</p>
+    </article>
+  `).join("");
+}
+
+async function loadSiteSettings() {
+  try {
+    const response = await fetch("data/site.json", { cache: "no-store" });
+    if (!response.ok) return;
+
+    const settings = await response.json();
+
+    Object.entries(settings).forEach(([key, value]) => {
+      if (typeof value === "string") {
+        setText(key, value);
+      }
+    });
+
+    document.title = `${settings.siteName || "Pillarbattle"} | Minecraft Minigames`;
+    document.querySelectorAll("[data-href='discordUrl']").forEach((element) => {
+      element.href = settings.discordUrl;
+    });
+    renderGames(settings.games);
+  } catch {
+    // Local file previews can block fetch. Netlify serves this normally.
+  }
+}
+
+loadSiteSettings();
 
 copyButton?.addEventListener("click", async () => {
   const targetId = copyButton.dataset.copyTarget;

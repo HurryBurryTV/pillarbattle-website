@@ -1,0 +1,33 @@
+{
+  "siteName": "Pillarbattle",
+  "serverIp": "Pillarbattle.moonsrv.me",
+  "discordUrl": "https://discord.gg/4K7VNvwytP",
+  "heroEyebrow": "Minecraft Minigames",
+  "heroTitle": "Pillarbattle gör varje match kaotisk, smart och svår att släppa.",
+  "heroText": "Hoppa in med kompisarna och spela Manhunt, Pillar of Fortune och Death Swap på en server byggd för snabba vändningar och stora clutch-moments.",
+  "introEyebrow": "Varför Pillarbattle?",
+  "introTitle": "Minigames där planen kan ändras på en sekund.",
+  "introText": "Servern är gjord för spelare som gillar tempo, strategi och oväntade situationer. Varje läge är enkelt att förstå, men tillräckligt djupt för att det alltid ska finnas ett nytt sätt att vinna.",
+  "gamesTitle": "Välj ditt kaos",
+  "games": [
+    {
+      "name": "Manhunt",
+      "description": "En spelare jagas medan resten försöker stoppa dem innan målet nås.",
+      "style": "manhunt"
+    },
+    {
+      "name": "Pillar of Fortune",
+      "description": "Bygg uppåt, få slumpade items och överlev längre än alla andra.",
+      "style": "fortune"
+    },
+    {
+      "name": "Death Swap",
+      "description": "Förbered fällor, byt plats med motståndaren och försök överleva bytet.",
+      "style": "deathswap"
+    }
+  ],
+  "eventEyebrow": "Nästa event",
+  "eventTitle": "Pillarbattle Night",
+  "eventText": "Varje fredag kör vi specialmatcher, turneringar och nya varianter av serverns spellägen.",
+  "footerText": "Joina Discord för nyheter, events och serverstatus."
+}
