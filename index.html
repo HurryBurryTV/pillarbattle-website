@@ -14,7 +14,7 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Till startsidan">
-        <img class="brand-mark" src="assets/pillarbattle.png" alt="" aria-hidden="true">
+        <img class="brand-mark" src="assets/pillarbattle.png" alt="Pillarbattle">
         <span data-content="siteName">Pillarbattle</span>
       </a>
       <nav class="nav" aria-label="Huvudmeny">
@@ -53,10 +53,10 @@
 
           <div class="server-card" aria-label="Serverstatus">
             <div class="server-card-top">
-              <span class="status-dot" aria-hidden="true"></span>
-              <span>Online nu</span>
+              <span class="status-dot status-loading" id="serverStatusDot" aria-hidden="true"></span>
+              <span id="serverStatusText">Hämtar status</span>
             </div>
-            <strong class="player-count"><span id="playerCount">42</span>/100</strong>
+            <strong class="player-count"><span id="playerCount">--</span>/<span id="maxPlayers">--</span></strong>
             <span class="muted">spelare inne</span>
             <div class="mini-bars" aria-hidden="true">
               <span></span>
@@ -148,5 +148,17 @@
       </div>
       <a href="https://discord.gg/4K7VNvwytP" target="_blank" rel="noreferrer" data-href="discordUrl">Gå till Discord</a>
     </footer>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

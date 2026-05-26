@@ -1,7 +1,11 @@
 const copyButton = document.querySelector("[data-copy-target]");
-const playerCount = document.querySelector("#playerCount");
 const countdown = document.querySelector("#eventCountdown");
 const gamesGrid = document.querySelector("#gamesGrid");
+const playerCount = document.querySelector("#playerCount");
+const maxPlayers = document.querySelector("#maxPlayers");
+const serverStatusText = document.querySelector("#serverStatusText");
+const serverStatusDot = document.querySelector("#serverStatusDot");
+let currentServerIp = document.querySelector("#serverIp")?.textContent?.trim() || "Pillarbattle.moonsrv.me";
 
 function setText(key, value) {
   if (!value) return;
@@ -41,6 +45,11 @@ async function loadSiteSettings() {
       element.href = settings.discordUrl;
     });
     renderGames(settings.games);
+
+    if (settings.serverIp) {
+      currentServerIp = settings.serverIp;
+      updateServerStatus();
+    }
   } catch {
     // Local file previews can block fetch. Netlify serves this normally.
   }
@@ -65,12 +74,58 @@ copyButton?.addEventListener("click", async () => {
   }
 });
 
-window.setInterval(() => {
-  if (!playerCount) return;
-  const base = 42;
-  const wave = Math.round(Math.sin(Date.now() / 5000) * 5);
-  playerCount.textContent = String(base + wave);
-}, 2200);
+function setServerStatus(state, online = "--", max = "--") {
+  if (playerCount) playerCount.textContent = online;
+  if (maxPlayers) maxPlayers.textContent = max;
+  if (!serverStatusText || !serverStatusDot) return;
+
+  serverStatusDot.classList.remove("status-loading", "status-offline");
+
+  if (state === "online") {
+    serverStatusText.textContent = "Online nu";
+    return;
+  }
+
+  if (state === "offline") {
+    serverStatusText.textContent = "Offline";
+    serverStatusDot.classList.add("status-offline");
+    return;
+  }
+
+  serverStatusText.textContent = "Hämtar status";
+  serverStatusDot.classList.add("status-loading");
+}
+
+async function updateServerStatus() {
+  if (!currentServerIp) return;
+
+  setServerStatus("loading");
+
+  try {
+    const response = await fetch(`https://api.mcsrvstat.us/3/${encodeURIComponent(currentServerIp)}`, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      setServerStatus("offline");
+      return;
+    }
+
+    const status = await response.json();
+
+    if (!status.online) {
+      setServerStatus("offline");
+      return;
+    }
+
+    setServerStatus("online", status.players?.online ?? 0, status.players?.max ?? "--");
+  } catch {
+    setServerStatus("offline");
+  }
+}
+
+updateServerStatus();
+window.setInterval(updateServerStatus, 60000);
 
 function updateCountdown() {
   if (!countdown) return;
